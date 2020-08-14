@@ -25,5 +25,5 @@ Alternatively you can use some stack like [WAMP](https://www.wampserver.com/en/)
 3. Enjoy it
 
 ### Warning
-The website doesn't include any particoular security prevention, so DON'T use in a production environment without adding it.
+The website doesn't include any particular security prevention, so DON'T use in a production environment without adding it.
 To have more information or assistence configuring it, open an issue or contact me.
