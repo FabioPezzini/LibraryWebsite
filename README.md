@@ -2,6 +2,7 @@
 
 A very easy to use and personalize cataloguer website template.
 ![alt text](img/screen/home_desk.png "Home screenshot")
+![alt text](img/screen/home_mob.png "Home-mobile screenshot")
 
 [Additional screenshot](img/screen/)
 
