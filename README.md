@@ -1,8 +1,9 @@
 # Library Website Template
 
 A very easy to use and personalize cataloguer website template.
-![alt text](img/screen/home_desk.png "Home screenshot")
-![alt text](img/screen/home_mob.png "Home-mobile screenshot")
+
+<img src="https://github.com/FabioPezzini/library_website_template/blob/master/img/screen/home_desk.png" width="700"> <img src="https://github.com/FabioPezzini/library_website_template/blob/master/img/screen/home_mob.png" width="200">
+
 
 [Additional screenshot](img/screen/)
 
