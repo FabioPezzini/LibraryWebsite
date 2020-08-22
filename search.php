@@ -6,7 +6,9 @@
 
 	$textsearch = isset($_GET['q']) ? $_GET['q'] : false;
 	$optionfilter = isset($_GET['by']) ? $_GET['by'] : false;
-	$optionorder = isset($_GET['order']) ? $_GET['order'] : false;
+    $optionorder = isset($_GET['order']) ? $_GET['order'] : false;
+    $optiondatestart = isset($_GET['dateI']) ? $_GET['dateI'] : false;
+    $optiondateend = isset($_GET['dateE']) ? $_GET['dateE'] : false;
 	$optionlimit = isset($_GET['limit']) ? $_GET['limit'] : false;
 
 
@@ -23,14 +25,13 @@
     else {
         $totalq = $totalq . " where issue_title like '%" . $textsearch . "%'";
     }
+    if($optiondatestart) {
+        $totalq = $totalq . " AND issue_date >= '" . $optiondatestart . "-01-01'";
+        $totalq = $totalq . " AND issue_date <= '" . $optiondateend . "-12-31'";
+    }
 	if($optionorder) {
 		$totalq = $totalq . " ORDER BY issue_date " . $_GET['order'];
-	}
-	if($optionlimit) {
-		$valuelimit = $_GET['limit'];
-		$totalq = $totalq . " LIMIT $valuelimit";
-	}
-    echo $totalq;
+    }
 	
 	$totalres=mysqli_query($conn,$totalq) or die("Can't Execute Query...");
 	$totalrow=mysqli_fetch_assoc($totalres);
@@ -38,7 +39,11 @@
 	
 	$page_per_page=18;
 	
-	$page_total_rec=$totalrow['total'];
+    $page_total_rec=$totalrow['total'];
+    
+    if($optionlimit) {
+		$page_total_rec = $_GET['limit'];
+	}
 	
 	$page_total_page=ceil($page_total_rec/$page_per_page);
 	
@@ -107,7 +112,7 @@
                                 $totalres=mysqli_query($conn,$totalq) or die("Can't Execute Query...");
                                 $first=mysqli_fetch_row($totalres);
                                 
-                            ECHO '<div class="price-range-wrap">
+                            echo '<div class="price-range-wrap">
                                     <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
                                         data-min="'.$first[0].'" data-max="'.$last[0].'">
                                         <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
@@ -116,8 +121,8 @@
                                         </div>
                                         <div class="range-slider">
                                             <div class="price-input">
-                                                <input type="text" id="minamount">
-                                                <input type="text" id="maxamount">
+                                                <input type="text" id="minamount" readonly>
+                                                <input type="text" id="maxamount" readonly>
                                             </div>
                                         </div>
                                     </div>';
@@ -189,7 +194,7 @@
                                 <div class="filter_found">
                                     <?php
                                         if ($textsearch != null) {
-                                            echo '<h6><span>' . $totalrow['total'] . '</span> comics found</h6>';
+                                            echo '<h6><span>' . $page_total_rec . '</span> comics found</h6>';
                                         }
                                     ?>
                                 </div>
@@ -202,7 +207,9 @@
                             
                             $textsearch = isset($_GET['q']) ? $_GET['q'] : false;
                             $optionfilter = isset($_GET['by']) ? $_GET['by'] : false;
-	                        $optionorder = isset($_GET['order']) ? $_GET['order'] : false;
+                            $optionorder = isset($_GET['order']) ? $_GET['order'] : false;
+                            $optiondatestart = isset($_GET['dateI']) ? $_GET['dateI'] : false;
+                            $optiondateend = isset($_GET['dateE']) ? $_GET['dateE'] : false;
 	                        $optionlimit = isset($_GET['limit']) ? $_GET['limit'] : false;
                             
                             if ($textsearch) {
@@ -222,13 +229,28 @@
                                 else {
 								    $query = $query . " where issue_title like '%" . $textsearch . "%'";
                                 }
+                                if($optiondatestart) {
+                                    $query = $query . " AND issue_date >= '" . $optiondatestart . "-01-01'";
+                                    $query = $query . " AND issue_date <= '" . $optiondateend . "-12-31'";
+                                }
 							    if($optionorder) {
 								    $query = $query . " ORDER BY issue_date " . $_GET['order'];
-							    }
-                                
-                                
-							    $query = $query . ' LIMIT ' . $k . ' , ' . $page_per_page;
-											
+                                }
+                                if($optionlimit) {
+                                    if ($optionlimit <= 18) {
+                                        $query = $query . ' LIMIT 0 , ' . $optionlimit;
+                                    }
+                                    else if (($k + $page_per_page > $optionlimit)) {
+                                        $query = $query . ' LIMIT ' . $k . ' , ' . ($optionlimit-$k);
+                                    }
+                                    else {
+                                        $query = $query . ' LIMIT ' . $k . ' , ' . $page_per_page;
+                                    }
+                                }
+                                else {
+							        $query = $query . ' LIMIT ' . $k . ' , ' . $page_per_page;
+                                }	
+                        		
 							    $res=mysqli_query($conn,$query) or die("Can't Execute Query...");
 	
 							
@@ -264,8 +286,15 @@
                                     $string = $string . "&by=" . $optionfilter;
                                 }
                                 if($optionorder) {
-                                    $string = $string . "&order=" . $_GET['order'];
-                                }                 
+                                    $string = $string . "&order=" . $optionorder;
+                                }        
+                                if($optiondatestart) {
+                                    $string = $string . "&dateI=" . $optiondatestart;
+                                    $string = $string . "&dateE=" . $optiondateend;
+                                }
+                                if ($optionlimit) {
+                                    $string = $string . "&limit=" . $optionlimit;
+                                }
                             
                                 if($page_current_page>1){
                                     echo '<a href="search.php?' . $string.'&page='.($page_current_page - 1).'">Back</a>';

@@ -59,23 +59,96 @@
     $('.site-btn').on('click', function() {
         var query = "search.php";
         var qValue = $("input[id='q']").val();
+
         
         if (qValue.length != 0) {
             query = query + "?q=" + qValue;
+
+            var dateI = $("#minamount").val()
+            if (dateI != null) {
+                query = query + "&dateI=" + $("#minamount").val();
+                query = query + "&dateE=" + $("#maxamount").val();
+            }
+        
+            var filterByValue = $("input[name='filterby']:checked").val();
+            if (filterByValue != null) {
+                query = query + "&by=" + filterByValue;
+            }
+            var filterLimitValue = $("input[name='filterlimit']:checked").val();
+            if (filterLimitValue != null) {
+                query = query + "&limit=" + filterLimitValue;
+            }
+            var filterOrderValue = $("input[name='filterorder']:checked").val();
+            if (filterOrderValue != null) {
+                query = query + "&order=" + filterOrderValue;
+            }
+        
+            location.href = query;
         }
-        var filterByValue = $("input[name='filterby']:checked").val();
-        if (filterByValue != null) {
-            query = query + "&by=" + filterByValue;
-        }
-        var filterLimitValue = $("input[name='filterlimit']:checked").val();
-        if (filterLimitValue != null) {
-            query = query + "&limit=" + filterLimitValue;
-        }
-        var filterOrderValue = $("input[name='filterorder']:checked").val();
-        if (filterOrderValue != null) {
-            query = query + "&order=" + filterOrderValue;
-        }
-        location.href = query;
+    });
+
+    $(document).on('keypress', function(e) {
+        var query = "search.php";
+        var qValue = $("input[id='q']").val();
+        
+        if(e.which == 13) {
+            if (qValue.length != 0) {
+                query = query + "?q=" + qValue;
+    
+                var dateI = $("#minamount").val()
+                if (dateI != null) {
+                    query = query + "&dateI=" + $("#minamount").val();
+                    query = query + "&dateE=" + $("#maxamount").val();
+                }
+            
+                var filterByValue = $("input[name='filterby']:checked").val();
+                if (filterByValue != null) {
+                    query = query + "&by=" + filterByValue;
+                }
+                var filterLimitValue = $("input[name='filterlimit']:checked").val();
+                if (filterLimitValue != null) {
+                    query = query + "&limit=" + filterLimitValue;
+                }
+                var filterOrderValue = $("input[name='filterorder']:checked").val();
+                if (filterOrderValue != null) {
+                    query = query + "&order=" + filterOrderValue;
+                }
+            
+                location.href = query;
+            }
+        }     
+    });
+
+    $('#q').on('keyup', function(e) {
+        var query = "search.php";
+        var qValue = $("input[id='q']").val();
+        
+        if(e.key === 'Enter' || e.keyCode === 13) {
+            if (qValue.length != 0) {
+                query = query + "?q=" + qValue;
+    
+                var dateI = $("#minamount").val()
+                if (dateI != null) {
+                    query = query + "&dateI=" + $("#minamount").val();
+                    query = query + "&dateE=" + $("#maxamount").val();
+                }
+            
+                var filterByValue = $("input[name='filterby']:checked").val();
+                if (filterByValue != null) {
+                    query = query + "&by=" + filterByValue;
+                }
+                var filterLimitValue = $("input[name='filterlimit']:checked").val();
+                if (filterLimitValue != null) {
+                    query = query + "&limit=" + filterLimitValue;
+                }
+                var filterOrderValue = $("input[name='filterorder']:checked").val();
+                if (filterOrderValue != null) {
+                    query = query + "&order=" + filterOrderValue;
+                }
+            
+                location.href = query;
+            }
+        }     
     });
 
     $("input:checkbox").on('click', function() {
