@@ -53,7 +53,7 @@
     ?>
     <!-- Breadcrumb Section End -->
 
-    <!-- comic Details Section Begin -->
+    <!-- Comic Details Begin -->
     <section class="comic-details spad">
         <div class="container">
             <div class="row">
@@ -63,63 +63,60 @@
                             <?php
                                 echo '<img class="comic_details_pic_item" src="'.$row['issue_link_image']. '" >'
                             ?>
-                            
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="comic_details_text">
                         <?php
-                        
                             echo '<h3>' . $row['issue_title'] . '</h3>';
                             echo '<h4>' . $row['issue_subtitle'] . '</h4>';
                             echo '<br>';
                             echo '<p>' . $row['authors'] . '</p>';
                         ?>
                         <?php
-                        require('includes/config.php');
+                            require('includes/config.php');
                         
-                        if(isset($_SESSION['logged'])) {
-                            $q='select * from user_fav_comics where comic=' . '"' . $id . '" AND u_unm=' . '"' . $_SESSION['unm'] . '"';
+                            if(isset($_SESSION['logged'])) {
+                                $q='select * from user_fav_comics where comic=' . '"' . $id . '" AND u_unm=' . '"' . $_SESSION['unm'] . '"';
 									
-							$res=mysqli_query($conn,$q) or die("Can't Execute Query..");
-                            $row=mysqli_num_rows($res);
+							    $res=mysqli_query($conn,$q) or die("Can't Execute Query..");
+                                $row=mysqli_num_rows($res);
                 
-                            if (! $row) {
-                                echo '<a id="heart-icon" class="heart-icon"><span class="icon_heart_alt"></span> Add to favorite</a> ';
-                                
-                            }
-                            else {
-                                echo '<a id="heart-icon" class="heart-icon-active"><span class="icon_heart_alt"></span> Remove to favorite</a> ';
-                            }
+                                if (! $row) {
+                                    echo '<a id="heart-icon" class="heart-icon"><span class="icon_heart_alt"></span> Add to favorite</a> ';   
+                                }
+                                else {
+                                    echo '<a id="heart-icon" class="heart-icon-active"><span class="icon_heart_alt"></span> Remove to favorite</a> ';
+                                }
 
-                            $q='select * from user_read_comics where comic=' . '"' . $id . '" AND u_unm=' . '"' . $_SESSION['unm'] . '"';
+                                $q='select * from user_read_comics where comic=' . '"' . $id . '" AND u_unm=' . '"' . $_SESSION['unm'] . '"';
 									
-							$res=mysqli_query($conn,$q) or die("Can't Execute Query..");
-                            $row=mysqli_num_rows($res);
+							    $res=mysqli_query($conn,$q) or die("Can't Execute Query..");
+                                $row=mysqli_num_rows($res);
                             
-                            if (! $row) {
-                                echo '<a id="book-icon" class="heart-icon"><span class="icon_book_alt"></span> Add to read</a> ';
-                            }
-                            else {
-                                echo '<a id="book-icon" class="heart-icon-active"><span class="icon_book_alt"></span> Remove to read</a> ';
-                            }
+                                if (! $row) {
+                                    echo '<a id="book-icon" class="heart-icon"><span class="icon_book_alt"></span> Add to read</a> ';
+                                }
+                                else {
+                                    echo '<a id="book-icon" class="heart-icon-active"><span class="icon_book_alt"></span> Remove to read</a> ';
+                                }
 
-                            $q='select * from user_bought_comics where comic=' . '"' . $id . '" AND u_unm=' . '"' . $_SESSION['unm'] . '"';
+                                $q='select * from user_bought_comics where comic=' . '"' . $id . '" AND u_unm=' . '"' . $_SESSION['unm'] . '"';
 									
-							$res=mysqli_query($conn,$q) or die("Can't Execute Query..");
-                            $row=mysqli_num_rows($res);
+							    $res=mysqli_query($conn,$q) or die("Can't Execute Query..");
+                                $row=mysqli_num_rows($res);
                             
-                            if (! $row) {
-                                echo '<a id="archive-icon" class="heart-icon"><span class="icon_archive_alt"></span> Add to bought</a> ';
+                                if (! $row) {
+                                    echo '<a id="archive-icon" class="heart-icon"><span class="icon_archive_alt"></span> Add to bought</a> ';
+                                }
+                                else {
+                                    echo '<a id="archive-icon" class="heart-icon-active"><span class="icon_archive_alt"></span> Remove to bought</a> ';
+                                }
                             }
                             else {
-                                echo '<a id="archive-icon" class="heart-icon-active"><span class="icon_archive_alt"></span> Remove to bought</a> ';
+                                echo '<a href="access.php">Login to manage your library</a>';
                             }
-                        }
-                        else {
-                            echo '<a href="access.php">Login to manage your library</a>';
-                        }
                         ?>
                         <ul>
                             <li><b>Issue Date</b> <span>
@@ -205,22 +202,22 @@
             </div>
         </div>
     </section>
-    <!-- Comic Details Section End -->
+    <!-- Comic Details End -->
 
-    <!-- Related comic Section Begin -->
+    <!-- Related Comic Begin -->
     <section class="related-comic">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <?php
-                    require('includes/config.php');
-                    $q='SELECT * FROM italiancomics WHERE serie_title=' . '"' . $row['serie_title'] . '" AND link_albo <>' . '"' . $row['link_albo'] . '" ORDER BY issue_date DESC LIMIT 4';
-                    $res=mysqli_query($conn,$q) or die("Can't Execute Query..");
-                    if(mysqli_num_rows($res)!=0) {
-                        echo'<div class="section-title related_comic_title">
+                        require('includes/config.php');
+                        $q='SELECT * FROM italiancomics WHERE serie_title=' . '"' . $row['serie_title'] . '" AND link_albo <>' . '"' . $row['link_albo'] . '" ORDER BY issue_date DESC LIMIT 4';
+                        $res=mysqli_query($conn,$q) or die("Can't Execute Query..");
+                        if(mysqli_num_rows($res)!=0) {
+                            echo'<div class="section-title related_comic_title">
                                 <h2>Related Comics:</h2>
-                            </div>';
-                    }
+                                </div>';
+                        }
                     ?>
                 </div>
             </div>
@@ -288,7 +285,7 @@
             </div>
         </div>
     </section>
-    <!-- Related comic Section End -->
+    <!-- Related Comic End -->
 
     <!-- Footer Section Begin -->
     <?php
@@ -299,9 +296,8 @@
     <!-- Js Plugins -->
     <?php
 		include("includes/js_plugin.inc.php");
-	?>
-
-
+    ?>
+    
 </body>
 
 </html>

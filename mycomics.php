@@ -46,9 +46,7 @@
                             <h2>Favorite Comics</h2>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                
-                            </div>
+                            <div class="col-lg-4 col-md-5"></div>
                             <div class="col-lg-4 col-md-4">
                                 <?php
                                     require('includes/config.php');
@@ -73,7 +71,7 @@
                                                 <div class="mycomics_item">
                                                     <div class="mycomics_item_pic" >
                                                         <a href="detail.php?id=' .$row['link_albo']. '">
-                                                            <img src="'.$row['issue_link_image']. '" width="200" height="270" class="center">
+                                                            <img src="'.$row['issue_link_image']. '" width="200" height="270" class="mycomics_center">
                                                         </a>
                                                         
                                                     </div>
@@ -101,7 +99,6 @@
                                     }			
 				                    mysqli_close($conn);
 			                    ?>
-                                
                             </div>
                         </div>
                     </div>
@@ -110,12 +107,9 @@
                             <h2>Read Comics</h2>
                         </div>
                         <div class="row">
-                            <div class="col-lg-4 col-md-5">
-                                
-                            </div>
+                            <div class="col-lg-4 col-md-5"></div>
                             <div class="col-lg-4 col-md-4">
                                 <?php
-
                                     require('includes/config.php');
                                     $totalq="SELECT count(*) \"total\" FROM italiancomics INNER JOIN user_read_comics ON italiancomics.link_albo=user_read_comics.comic";
                                     $totalres=mysqli_query($conn,$totalq) or die("Can't Execute Query...");
@@ -138,7 +132,7 @@
                                                 <div class="mycomics_item">
                                                     <div class="mycomics_item_pic" >
                                                         <a href="detail.php?id=' .$row['link_albo']. '">
-                                                            <img src="'.$row['issue_link_image']. '" width="200" height="270" class="center">
+                                                            <img src="'.$row['issue_link_image']. '" width="200" height="270" class="mycomics_center">
                                                         </a>
                                                     </div>
                                                     <div class="mycomics_item_text">
@@ -200,7 +194,7 @@
                                                 <div class="mycomics_item">
                                                     <div class="mycomics_item_pic" >
                                                         <a href="detail.php?id=' .$row['link_albo']. '">
-                                                            <img src="'.$row['issue_link_image']. '" width="200" height="270" class="center">
+                                                            <img src="'.$row['issue_link_image']. '" width="200" height="270" class="mycomics_center">
                                                         </a>
                                                     </div>
                                                     <div class="mycomics_item_text">
@@ -224,8 +218,7 @@
                                         $num += 1;    
                                     }			
 				                    mysqli_close($conn);
-			                    ?>
-                                
+			                    ?>  
                             </div>
                         </div>
                     </div>
@@ -234,7 +227,6 @@
         </div>
     </section>
     <!-- Comic Section End -->
-
 
     <!-- Footer Section Begin -->
     <?php

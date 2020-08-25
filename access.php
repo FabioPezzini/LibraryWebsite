@@ -29,9 +29,8 @@
             </div>
         </div>
     </section>
-    
-    <!-- Breadcrumb Section End -->
     <br>
+    <!-- Breadcrumb Section End -->
     
     <!-- Login e Registration Form Begin -->
     <?php 
@@ -99,7 +98,6 @@
 			// message if the user is already online
 		}
 	    ?>	
-    
     <!-- Login e Registration Form End -->                          
     
     <br>

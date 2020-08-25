@@ -84,13 +84,13 @@
     </header>
     <!-- Header Section End -->
 
-    <!-- Hero Section Begin -->
-    <section class="hero hero-normal">
+    <!-- Searchbar Section Begin -->
+    <section class="searchbar searchbar-normal">
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="hero_categories">
-                        <div class="hero_categories_all">
+                    <div class="searchbar_categories">
+                        <div class="searchbar_categories_all">
                             <i class="fa fa-bars"></i>
                             <span>Latest Series</span>
                         </div>
@@ -110,8 +110,8 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="hero_search">
-                        <div class="hero_search_form">
+                    <div class="searchbar_search">
+                        <div class="searchbar_search_form">
                             <form>
                                 <input type="text" id="q" placeholder="What comic are you searching?">
                                 <button type="button" class="site-btn">SEARCH</button>
@@ -122,4 +122,4 @@
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
+    <!-- Searchbar Section End -->

@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<html lang="zxx">
-
 <head>
     <?php
 		include("includes/head.php");

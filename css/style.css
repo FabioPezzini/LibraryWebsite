@@ -321,22 +321,22 @@ ol {
 }
 
 /*---------------------
-  Hero
+  searchbar
 -----------------------*/
 
-.hero {
+.searchbar {
 	padding-bottom: 50px;
 }
 
-.hero.hero-normal {
+.searchbar.searchbar-normal {
 	padding-bottom: 30px;
 }
 
-.hero.hero-normal .hero_categories {
+.searchbar.searchbar-normal .searchbar_categories {
 	position: relative;
 }
 
-.hero.hero-normal .hero_categories ul {
+.searchbar.searchbar-normal .searchbar_categories ul {
 	display: none;
 	position: absolute;
 	left: 0;
@@ -346,30 +346,30 @@ ol {
 	background: #ffffff;
 }
 
-.hero.hero-normal .hero_search {
+.searchbar.searchbar-normal .searchbar_search {
 	margin-bottom: 0;
 }
 
-.hero_categories_all {
+.searchbar_categories_all {
 	background: #7fad39;
 	position: relative;
 	padding: 10px 25px 10px 40px;
 	cursor: pointer;
 }
 
-.hero_categories_all i {
+.searchbar_categories_all i {
 	font-size: 16px;
 	color: #ffffff;
 	margin-right: 10px;
 }
 
-.hero_categories_all span {
+.searchbar_categories_all span {
 	font-size: 18px;
 	font-weight: 700;
 	color: #ffffff;
 }
 
-.hero_categories_all:after {
+.searchbar_categories_all:after {
 	position: absolute;
 	right: 18px;
 	top: 9px;
@@ -379,30 +379,30 @@ ol {
 	color: #ffffff;
 }
 
-.hero_categories ul {
+.searchbar_categories ul {
 	border: 1px solid #ebebeb;
 	padding-left: 40px;
 	padding-top: 10px;
 	padding-bottom: 12px;
 }
 
-.hero_categories ul li {
+.searchbar_categories ul li {
 	list-style: none;
 }
 
-.hero_categories ul li a {
+.searchbar_categories ul li a {
 	font-size: 16px;
 	color: #1c1c1c;
 	line-height: 39px;
 	display: block;
 }
 
-.hero_search {
+.searchbar_search {
 	overflow: hidden;
 	margin-bottom: 30px;
 }
 
-.hero_search_form {
+.searchbar_search_form {
 	width: 610px;
 	height: 50px;
 	border: 1px solid #ebebeb;
@@ -410,7 +410,7 @@ ol {
 	float: left;
 }
 
-.hero_search_form form .hero_search_categories {
+.searchbar_search_form form .searchbar_search_categories {
 	width: 30%;
 	float: left;
 	font-size: 16px;
@@ -421,7 +421,7 @@ ol {
 	position: relative;
 }
 
-.hero_search_form form .hero_search_categories:after {
+.searchbar_search_form form .searchbar_search_categories:after {
 	position: absolute;
 	right: 0;
 	top: 14px;
@@ -432,13 +432,13 @@ ol {
 	content: "";
 }
 
-.hero_search_form form .hero_search_categories span {
+.searchbar_search_form form .searchbar_search_categories span {
 	position: absolute;
 	right: 14px;
 	top: 14px;
 }
 
-.hero_search_form form input {
+.searchbar_search_form form input {
 	width: 70%;
 	border: none;
 	height: 48px;
@@ -447,11 +447,11 @@ ol {
 	padding-left: 20px;
 }
 
-.hero_search_form form input::placeholder {
+.searchbar_search_form form input::placeholder {
 	color: #b2b2b2;
 }
 
-.hero_search_form form button {
+.searchbar_search_form form button {
 	position: absolute;
 	right: 0;
 	top: -1px;
@@ -459,23 +459,23 @@ ol {
 }
 
 /*---------------------
-  Featured
+  latest
 -----------------------*/
 
-.featured {
+.latest {
 	padding-top: 80px;
 	padding-bottom: 40px;
 }
 
-.featured_item {
+.latest_item {
 	margin-bottom: 50px;
 }
 
-.featured_item:hover .featured_item_pic .featured_item_pic_hover {
+.latest_item:hover .latest_item_pic .latest_item_pic_hover {
 	bottom: 20px;
 }
 
-.featured_item_pic {
+.latest_item_pic {
 	height: 270px;
 	position: relative;
 	overflow: hidden;
@@ -492,12 +492,26 @@ ol {
 	-moz-border-radius: 20px;
 	border-radius: 20px;
    /* box-shadow */
-	-webkit-box-shadow: rgba(0,0,0,0.8) 0 0 12px;
-	-moz-box-shadow: rgba(0,0,0,0.8) 0 0 12px;
-	box-shadow: rgba(0,0,0,0.8) 0 0 12px;
+	-webkit-box-shadow: rgba(0,0,0,0.8) 0 0 8px;
+	-moz-box-shadow: rgba(0,0,0,0.8) 0 0 8px;
+	box-shadow: rgba(0,0,0,0.8) 0 0 8px;
   }
 
-.featured_item_pic_hover {
+  .mycomics_center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	/* border-radius */
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
+   /* box-shadow */
+	-webkit-box-shadow: rgba(0,0,0,0.8) 0 0 6px;
+	-moz-box-shadow: rgba(0,0,0,0.8) 0 0 6px;
+	box-shadow: rgba(0,0,0,0.8) 0 0 6px;
+  }
+
+.latest_item_pic_hover {
 	position: absolute;
 	left: 0;
 	bottom: -50px;
@@ -510,23 +524,23 @@ ol {
 	transition: all, 0.5s;
 }
 
-.featured_item_pic_hover li {
+.latest_item_pic_hover li {
 	list-style: none;
 	display: inline-block;
 	margin-right: 6px;
 	
 }
 
-.featured_item_pic_hover li:last-child {
+.latest_item_pic_hover li:last-child {
 	margin-right: 0;
 }
 
-.featured_item_pic_hover li:hover a i {
+.latest_item_pic_hover li:hover a i {
 	color: black;
 	transform: rotate(360deg);
 }
 
-.featured_item_pic_hover li a {
+.latest_item_pic_hover li a {
 	font-size: 16px;
 	color: #1c1c1c;
 	height: 40px;
@@ -544,7 +558,7 @@ ol {
 	transition: all, 0.5s;
 }
 
-.featured_item_pic_hover li a i {
+.latest_item_pic_hover li a i {
 	position: relative;
 	transform: rotate(0);
 	-webkit-transition: all, 0.3s;
@@ -555,20 +569,20 @@ ol {
 	
 }
 
-.featured_item_text {
+.latest_item_text {
 	text-align: center;
 	padding-top: 15px;
 }
 
-.featured_item_text h6 {
+.latest_item_text h6 {
 	margin-bottom: 10px;
 }
 
-.featured_item_text h6 a {
+.latest_item_text h6 a {
 	color: #252525;
 }
 
-.featured_item_text h5 {
+.latest_item_text h5 {
 	color: #252525;
 	font-weight: 700;
 }
@@ -839,68 +853,13 @@ ol {
 	top: 15px;
 }
 
-.comic_item_pic_hover {
-	position: absolute;
-	left: 0;
-	bottom: -50px;
-	width: 100%;
-	text-align: center;
-	-webkit-transition: all, 0.5s;
-	-moz-transition: all, 0.5s;
-	-ms-transition: all, 0.5s;
-	-o-transition: all, 0.5s;
-	transition: all, 0.5s;
-}
-
-.comic_item_pic_hover li {
-	list-style: none;
-	display: inline-block;
-	margin-right: 6px;
-}
-
-.comic_item_pic_hover li:last-child {
-	margin-right: 0;
-}
-
-.comic_item_pic_hover li:hover a {
-	background: #7fad39;
-	border-color: #7fad39;
-}
-
-.comic_item_pic_hover li:hover a i {
-	color: #ffffff;
-	transform: rotate(360deg);
-}
-
-.comic_item_pic_hover li a {
-	font-size: 16px;
-	color: #1c1c1c;
-	height: 40px;
-	width: 40px;
-	line-height: 40px;
-	text-align: center;
-	border: 1px solid #ebebeb;
-	background: #ffffff;
-	display: block;
-	border-radius: 50%;
-	-webkit-transition: all, 0.5s;
-	-moz-transition: all, 0.5s;
-	-ms-transition: all, 0.5s;
-	-o-transition: all, 0.5s;
-	transition: all, 0.5s;
-}
-
-.comic_item_pic_hover li a i {
+.comic_item_pic {
+	height: 270px;
 	position: relative;
-	top: 10px;
-	transform: rotate(0);
-	-webkit-transition: all, 0.3s;
-	-moz-transition: all, 0.3s;
-	-ms-transition: all, 0.3s;
-	-o-transition: all, 0.3s;
-	transition: all, 0.3s;
+	overflow: hidden;
+	background-position: center center;
+	background-size: 200px 270px;
 }
-
 
 .mycomics_item_text {
 	text-align: center;
@@ -921,6 +880,8 @@ ol {
 
 .mycomics_item_text h5 {
 	margin-bottom: 6px;
+	color: #252525;
+	font-weight: 700;
 }
 
 .mycomics_item_text h5 a {
@@ -1015,13 +976,8 @@ ol {
 	margin-right: 0;
 }
 
-.comic_item_pic_hover li:hover a {
-	background: #7fad39;
-	border-color: #7fad39;
-}
-
 .comic_item_pic_hover li:hover a i {
-	color: #ffffff;
+	color: black;
 	transform: rotate(360deg);
 }
 
@@ -1107,6 +1063,21 @@ ol {
   Comic Details
 -----------------------*/
 
+#heart-icon {
+	cursor: pointer;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#book-icon {
+	cursor: pointer;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#archive-icon {
+	cursor: pointer;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
 .comic-details {
 	padding-top: 80px;
 }
@@ -1175,7 +1146,7 @@ ol {
 	font-size: 16px;
 	color: #6f6f6f;
 	padding: 13px 16px 13px;
-	background: #f5f5f5;
+	background: #f5f5f5;	
 }
 
 .comic_details_text .heart-icon-active {
@@ -1571,13 +1542,13 @@ ol {
 	.header_menu ul li {
 		margin-right: 45px;
 	}
-	.hero_search_form {
+	.searchbar_search_form {
 		width: 490px;
 	}
-	.hero_categories_all {
+	.searchbar_categories_all {
 		padding: 10px 25px 10px 20px;
 	}
-	.hero_categories ul {
+	.searchbar_categories ul {
 		padding-left: 20px;
 	}
 	.latest-comic_slider.owl-carousel .owl-nav {
@@ -1594,10 +1565,10 @@ ol {
 /* Tablet Device = 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-	.hero_categories {
+	.searchbar_categories {
 		margin-bottom: 30px;
 	}
-	.hero_search_form {
+	.searchbar_search_form {
 		width: 485px;
 	}
 	.filter_sort .nice-select {
@@ -1756,19 +1727,19 @@ ol {
 /* Wide Mobile = 480px */
 
 @media only screen and (max-width: 767px) {
-	.hero_categories {
+	.searchbar_categories {
 		margin-bottom: 30px;
 	}
-	.hero_search {
+	.searchbar_search {
 		margin-bottom: 30px;
 	}
-	.hero_search_form {
+	.searchbar_search_form {
 		width: 100%;
 	}
-	.hero_search_form form input {
+	.searchbar_search_form form input {
 		width: 100%;
 	}
-	.hero_search_form form .hero_search_categories {
+	.searchbar_search_form form .searchbar_search_categories {
 		display: none;
 	}
 	.footer_copyright {
@@ -1934,7 +1905,7 @@ ol {
 /* Small Device = 320px */
 
 @media only screen and (max-width: 479px) {
-	.hero_search_form form .hero_search_categories {
+	.searchbar_search_form form .searchbar_search_categories {
 		display: none;
 	}
 	.comic_details_text ul li b {

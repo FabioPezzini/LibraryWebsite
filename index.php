@@ -14,19 +14,18 @@
 		include("includes/header.inc.php");
 	?>
     <!-- Header End -->
-
-    
-    <!-- Featured Section Begin -->
-    <section class="featured spad">
+ 
+    <!-- Latest Comics Begin -->
+    <section class="latest spad">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Latest Comics Added:</h2>
                     </div>
-                    
                 </div>
             </div>
+
             <div class="row">
             <?php
                     require('includes/config.php');
@@ -34,12 +33,12 @@
 				    $res=mysqli_query($conn,$query);					
 				    while($row=mysqli_fetch_assoc($res)) {	
 					    echo '<div class="col-lg-3 col-md-4 col-sm-6">
-                                <div class="featured_item">
-                                    <div class="featured_item_pic" >
+                                <div class="latest_item">
+                                    <div class="latest_item_pic" >
                                         <a href="detail.php?id=' .$row['link_albo']. '">
                                             <img src="'.$row['issue_link_image']. '" width="200" height="270" class="center">
                                         </a>
-                                        <ul class="featured_item_pic_hover">';
+                                        <ul class="latest_item_pic_hover">';
                                             if(isset($_SESSION['logged'])) {
                                                 $totalq="SELECT count(*) \"total\" FROM italiancomics INNER JOIN user_fav_comics ON italiancomics.link_albo=user_fav_comics.comic WHERE italiancomics.link_albo=\"" . $row['link_albo'] ."\" AND user_fav_comics.u_unm=\"" . $_SESSION['unm'] . "\" LIMIT 1";
                                                 $totalres=mysqli_query($conn,$totalq) or die("Can't Execute Query...");
@@ -76,7 +75,7 @@
                                             }
                         echo            '</ul>
                                     </div>
-                                    <div class="featured_item_text">
+                                    <div class="latest_item_text">
                                         <a href="detail.php?id=' .$row['link_albo']. '">
                                             <h5>'.$row['issue_title']. '</h5>
                                         </a>
@@ -89,7 +88,7 @@
             </div>
         </div>
     </section>
-    <!-- Featured Section End -->
+    <!-- Latest Comics End -->
 
     <!-- Footer Section Begin -->
     <?php

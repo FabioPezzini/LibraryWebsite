@@ -40,12 +40,12 @@
 			values('$fullname','$username','$password','$email')";
 			mysqli_query($conn,$query) or die("Can't Execute Query...");
 			$_SESSION['logged'] = true;
+			$_SESSION["unm"] = $username;
 			$_SESSION['signup_error_ok'] = true;
-			header('location: access.php');
+			header('location: index.php');
 		}
 		else {
 			$_SESSION['signup_error_msg'] = $errormsg;
 			header('location: access.php');
 		}
 	}
-	
